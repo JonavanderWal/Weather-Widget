@@ -191,6 +191,10 @@ function App() {
 
   const days = dailyTimeline?.intervals?.slice(0, 3) || [];
 
+  const isLight = theme === "light";
+  const chartTextColor = isLight ? "#ffffff" : "#666666";
+  const chartLineColor = isLight ? "#ffffff" : "#3182bd";
+
   const chartData =
     hourlyTimeline?.intervals?.slice(0, 24).map((hour) => ({
       time: new Date(hour.startTime).toLocaleTimeString("nl-NL", {
@@ -262,19 +266,23 @@ function App() {
               data={chartData}
               margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
             >
-              <CartesianGrid strokeDasharray="3 3" opacity={0.25} />
+              <CartesianGrid
+                strokeDasharray="3 3"
+                opacity={0.25}
+                stroke={isLight ? "#ffffff" : "#ccc"}
+              />
 
               <XAxis
                 dataKey="time"
                 interval={5}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: chartTextColor }}
                 tickLine={false}
                 axisLine={false}
               />
 
               <YAxis
                 tickFormatter={(value) => `${value}°`}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: chartTextColor }}
                 tickLine={false}
                 axisLine={false}
                 width={35}
@@ -284,11 +292,14 @@ function App() {
                 formatter={(value) => [`${value}°C`, "Temperatuur"]}
                 labelFormatter={(label) => `Tijd: ${label}`}
                 wrapperStyle={{ outline: "none" }}
+                labelStyle={{ color: "#1f2937" }}
+                itemStyle={{ color: "#1f2937" }}
               />
 
               <Line
                 type="monotone"
                 dataKey="temp"
+                stroke={chartLineColor}
                 strokeWidth={3}
                 dot={false}
                 activeDot={{ r: 5 }}

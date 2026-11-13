@@ -221,7 +221,7 @@ input {
 
 .widget.light .weather-icon,
 .widget.light .forecast-icon {
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 .extra-data {

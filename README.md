@@ -4,6 +4,13 @@ Dit project is een Weather Widget die ik heb gemaakt met React en Vite. De widge
 
 De gebruiker kan een plaats opzoeken of zijn huidige locatie gebruiken. Naast het huidige weer laat de applicatie ook een grafiek voor de komende 24 uur en een voorspelling voor de komende dagen zien.
 
+Screenshots
+
+| Dark mode | Light mode |
+|-----------|------------|
+| <img src="images/dark-top.png" width="300"> | <img src="images/light-top.png" width="300"> |
+| <img src="images/dark-bottom.png" width="300"> | <img src="images/light-bottom.png" width="300"> |
+
 Functionaliteiten
 
 De Weather Widget bevat onder andere:
